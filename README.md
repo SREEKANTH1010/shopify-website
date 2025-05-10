@@ -1,6 +1,7 @@
 # Shopify 
 
-Overview and features 
+Overview and features :
+
 Thumbnail Image : A small image preview of the product, placed vertically on the left side, allowing customers to see various views or colors quickly.
 
 Main Image: The primary, larger image of the product, placed next to the thumbnail for a clearer, full view of the product.
