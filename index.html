@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ASSIGNMENT</title>
+  <link rel="stylesheet" href="Style.css"/>
+</head>
+<body>
+
+
+  <div class="product-container">
+    <!-- Thumbnails -->
+    <div class="thumbnails" id="thumbnails-brown">
+      <img src="assets/main1-b.webp" alt="img" onclick="changeMainImage('assets/main1-b.webp')">
+      <img src="assets/2nd-b.webp" alt="img" onclick="changeMainImage('assets/2nd-b.webp')">
+      <img src="assets/3rd-b.webp" alt="img" onclick="changeMainImage('assets/3rd-b.webp')">
+      <img src="assets/4th-b.webp" alt="img" onclick="changeMainImage('assets/4th-b.webp')">
+      <img src="assets/5th-b.webp" alt="img" onclick="changeMainImage('assets/5th-b.webp')">
+      <img src="assets/6th-b.webp" alt="img" onclick="changeMainImage('assets/6th-b.webp')">
+    </div>
+
+    <div id="thumbnails-blue" class="thumbnails">
+      <img src="assets/main2-blue.webp" alt="img" onclick="changeMainImage('assets/main2-blue.webp')">
+      <img src="assets/2nd-blue.webp" alt="img" onclick="changeMainImage('assets/2nd-blue.webp')">
+      <img src="assets/3rd-blue.webp" alt="img" onclick="changeMainImage('assets/3rd-blue.webp')">
+      <img src="assets/4th-blue.webp" alt="img" onclick="changeMainImage('assets/4th-blue.webp')">
+      <img src="assets/5th-blue.webp" alt="img" onclick="changeMainImage('assets/5th-blue.webp')">
+      <img src="assets/6th-blue.webp" alt="img" onclick="changeMainImage('assets/6th-blue.webp')">
+    </div>
+
+    <div id="thumbnails-green" class="thumbnails">
+      <img src="assets/main3-g.webp" alt="img" onclick="changeMainImage('assets/main3-g.webp')">
+      <img src="assets/2nd-g.webp" alt="img" onclick="changeMainImage('assets/2nd-g.webp')">
+      <img src="assets/3rd-g.webp" alt="img" onclick="changeMainImage('assets/3rd-g.webp')">
+      <img src="assets/4th-g.webp" alt="img" onclick="changeMainImage('assets/4th-g.webp')">
+      <img src="assets/5th-g.webp" alt="img" onclick="changeMainImage('assets/5th-g.webp')">
+      <img src="assets/6th-g.webp" alt="img" onclick="changeMainImage('assets/6th-g.webp')">
+    </div>
+
+    <!-- main content and customization -->
+    <div class="product-gallery">
+      <div class="main-image">
+        <img id="main-img" src="assets/main1-b.webp" alt="img">
+      </div>
+
+      <div class="item-details">
+        <h2>Koina Dress</h2>
+        <p>Stylish Cotton Midi Dress</p>
+        <h3>₹3000</h3>
+        <hr>
+        <!-- Color Swatches -->
+        <div class="color-options">
+          <div class="swatch" style="background-color: brown;" data-img="assets/main1-b.webp" title="Brown" onclick="changeColor('brown')"></div>
+          <div class="swatch" style="background-color: blue;" data-img="assets/main2-blue.webp" title="Blue" onclick="changeColor('blue')"></div>
+          <div class="swatch" style="background-color: green;" data-img="assets/3rd-g.webp" title="Green" onclick="changeColor('green')"></div>
+        </div>
+
+        <!-- Size Options (below color swatches) -->
+        <div class="size-options">
+          <h4>Size</h4>
+          <select id="size-select">
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">Extra Large</option>
+          </select>
+       
+
+        <!-- Size Chart Button -->
+        <button id="size-chart-btn" onclick="openModal()">Size Chart</button>
+        
+        <!-- Modal -->
+        <div id="size-chart-modal" class="modal">
+          <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3>Size Chart</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Size</th>
+                  <th>Chest (inches)</th>
+                  <th>Waist (inches)</th>
+                  <th>Length (inches)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>S</td>
+                  <td>34-36</td>
+                  <td>28-30</td>
+                  <td>36</td>
+                </tr>
+                <tr>
+                  <td>M</td>
+                  <td>38-40</td>
+                  <td>32-34</td>
+                  <td>38</td>
+                </tr>
+                <tr>
+                  <td>L</td>
+                  <td>42-44</td>
+                  <td>36-38</td>
+                  <td>40</td>
+                </tr>
+                <tr>
+                  <td>XL</td>
+                  <td>46-48</td>
+                  <td>40-42</td>
+                  <td>42</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <hr>
+      
+          <!-- Compare Colours Button -->
+          <button class="compare-btn" id="compareBtn">Compare Colours</button>
+      
+          <!-- Modal -->
+          <div class="modal" id="compareModal">
+              <div class="modal-content">
+                  <span class="close-btn" id="closeBtn">&times;</span>
+                  <h2>Select Colours to Compare</h2>
+      
+                  <!-- Colour Swatches -->
+                  <div class="colour-swatches">
+                      <div class="swatch" style="background-color: brown;" onclick="selectColour(this)"></div>
+                      <div class="swatch" style="background-color: blue;" onclick="selectColour(this)"></div>
+                      <div class="swatch" style="background-color: green;" onclick="selectColour(this)"></div>
+                  </div>
+      
+                  <!-- Selected Colours -->
+                  <h3>Selected Colours:</h3>
+                  <div class="selected-colours" id="selectedColours"></div>
+              </div>
+          </div>
+      
+      <hr>
+      <!-- Pair Well With Section -->
+<div class="pair-well-with">
+    <h3>Pair Well With</h3>
+    <div class="pair-well-container">
+      <!-- Product 1 -->
+      <div class="pair-product-card">
+        <img src="assets/pair-bag.webp" alt="product1">
+        <h4>Handbag</h4>
+        <p>₹5000</p>
+        <button>Add to Cart</button>
+      </div>
+      <!-- Product 2 -->
+      <div class="pair-product-card">
+        <img src="assets/pair-watch.webp" alt="product2">
+        <h4>Rose Gold Watch</h4>
+        <p>₹2000</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="pair-product-card">
+        <img src="assets/pair-shoe1.avif" alt="product3">
+        <h4>Brown Heels</h4>
+        <p>₹4000</p>
+        <button>Add to Cart</button>
+      </div>
+<!-- Product 4 -->
+      <div class="pair-product-card">
+        <img src="assets/pair-shoe-2.avif" alt="product4">
+        <h4>White Shoes</h4>
+        <p>₹2000</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+</div>
+
+<hr>
+
+<div class="buy-bundle">
+    <h3>Buy the Bundle</h3>
+    <div class="bundle-row">
+      <img src="assets/main3-g.webp" alt="Dress" class="bundle-thumb">
+      <span class="bundle-sign">+</span>
+      <img src="assets/pair-shoe-2.avif" alt="Shoe" class="bundle-thumb">
+      <span class="bundle-sign">+</span>
+      <img src="assets/pair-bag.webp" alt="Bag" class="bundle-thumb">
+      <span class="bundle-sign">=</span>
+      <div class="bundle-price">
+        <del>₹10,000</del>
+        <span class="discounted-price">₹9,000</span>
+        <button>Add Bundle to Cart</button>
+      </div>
+    </div>
+  </div>
+  
+<hr>
+
+<!-- tabs of info -->
+<div class="tabs">
+    <div class="tab-buttons">
+      <button onclick="showTab(event, 'description')">Description</button>
+      <button onclick="showTab(event, 'product-info')">Product Information</button>
+      <button onclick="showTab(event, 'shipping')">Shipping Details</button>
+    </div>
+  
+    <div class="tab-content" id="description">
+      <p>Elevate your everyday look with the Koina Dress — a breezy, stylish cotton midi perfect for effortless elegance.</p>
+    </div>
+  
+    <div class="tab-content" id="product-info" style="display:none;">
+        <p><strong>Available Sizes:</strong> S, M, L, XL</p>
+        <p><strong>Colors:</strong> Brown, Blue, Green</p>
+        <p><strong>Material:</strong> 100% Cotton</p>
+    </div>
+  
+    <div class="tab-content" id="shipping" style="display:none;">
+        <p>Ships in 3–5 business days. Free returns within 30 days.</p>
+        </div>
+  </div>
+  
+  <hr>
+  
+
+<!-- related items -->
+<section class="related-items">
+    <h3>Related Items</h3>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="assets/related-1.webp" alt="Related Item 1">
+            <h2>Jeans Dress</h2>
+            <button>View Details</button>
+        </div>
+        <div class="product-card">
+            <img src="assets/related-2.webp" alt="Related Item 2">
+            <h2>Kurthi</h2>
+            <button>View Details</button>
+        </div>
+        <div class="product-card">
+            <img src="assets/related-3.webp" alt="Related Item 3">
+            <h2>White Dress</h2>
+            <button>View Details</button>
+        </div>
+        <div class="product-card">
+            <img src="assets/related-4.webp" alt="Related Item 4">
+            <h2>Summer Red Dress</h2>
+            <button>View Details</button>
+        </div>
+    </div>
+</section>
+
+
+  <script src="index.js"></script>
+</body>
+</html>
