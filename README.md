@@ -1,4 +1,4 @@
-#Shopify 
+# Shopify 
 
 Overview and features 
 Thumbnail Image : A small image preview of the product, placed vertically on the left side, allowing customers to see various views or colors quickly.
